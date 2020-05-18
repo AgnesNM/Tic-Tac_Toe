@@ -1,15 +1,19 @@
-user_input = input(" Do you choose X or O? ")
-input_position = input(" Where would you like to place it? Enter a number between 1 and 9: ")
+n = 0
+lst_user_input = [ ]
+while n<3:
+    user_input = input(" Do you choose X or O? ")
+    input_position = input(" Where would you like to place it? Enter a number between 1 and 9: ")
+    n+=1
+    lst_user_input.append(user_input)
+    break
 
-def show_options():
-    if user_input == 'x'.lower():
-        print(user_input)
-    if int(input_position) in range(1, 10):
-        print(input_position)
-show_options()
+
 
 def display_board(board):
-    board[int(input_position)] += user_input
+    for index, num in enumerate(board):
+        if index == int(input_position):
+            for z in lst_user_input:
+                board[int(input_position)] += lst_user_input[0]
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(board[4] + ' | ' + board[5] + ' | ' + board[6])
     print(board[1] + ' | ' + board[2] + ' | ' + board[3])
