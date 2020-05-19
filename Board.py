@@ -1,19 +1,20 @@
 def repeat ():
-    n = 0
+    n = 0 #player chances to place an x or o
     global lst_user_input
     lst_user_input = []
-    while n < 3:
+    while n <= 3:
         global user_input
         user_input = input(" Do you choose X or O? ")
         global input_position
         input_position = input(" Where would you like to place it? Enter a number between 1 and 9: ")
+        print(int(input_position))
         n += 1
 
         lst_user_input.append(user_input)
         break
+repeat()
 
 def display_board(board):
-    repeat()
     for index, num in enumerate(board):
         if index == int(input_position):
             for z in lst_user_input:
@@ -25,8 +26,9 @@ def display_board(board):
 display_board ([' '] *10)
 
 
+#we need to call the updated board
 repeat()
-display_board([' '] *10)
+display_board ([' '] *10)
 
 
 
