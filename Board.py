@@ -32,14 +32,21 @@ def updated_board(board):
 
 newest = updated_board([' '] *10)
 
-repeat()
 
-def latest_board(newest):
-    for var in range(len(newest)):
-        if var == int(input_position):
-            newest[int(input_position)] += user_input
-            print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
-            print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-            print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
-    return newest
-latest_board(newest)
+def rounds():
+    r = 8
+    while r>0:
+        repeat()
+        def latest_board(newest):
+            for var in range(len(newest)):
+                if var == int(input_position):
+                    newest[int(input_position)] += user_input
+                    print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
+                    print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
+                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
+            return newest
+
+        latest_board(newest)
+        r-=1
+        #continue
+rounds()
