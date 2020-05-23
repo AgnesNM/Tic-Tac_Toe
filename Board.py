@@ -1,4 +1,5 @@
 user_input_lst = []
+user_pos_lst = [ ]
 def display_board(board):
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(board[4] + ' | ' + board[5] + ' | ' + board[6])
@@ -16,8 +17,16 @@ repeat()
 
 def collect_input():    
     user_input_lst.append(user_input)
-    print(f"user input is {user_input_lst}")
+    user_pos_lst.append(int(input_position))    
 collect_input()
+
+def winner():
+    code = ['x','x','x']
+    for user in range(len(user_input_lst)):
+        if user_input_lst == code:
+            print(f"You entered 3 {user_input_lst[user]}'s! You win")
+        break         
+winner()
 
 def updated_board(board):
     for index in range(len(board)):
@@ -36,6 +45,7 @@ def rounds():
     while r>0:
         repeat()    
         collect_input()
+        winner()
         def latest_board(newest):
             for var in range(len(newest)):
                 if var == int(input_position):
