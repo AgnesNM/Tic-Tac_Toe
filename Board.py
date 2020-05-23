@@ -1,3 +1,4 @@
+user_input_lst = []
 def display_board(board):
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(board[4] + ' | ' + board[5] + ' | ' + board[6])
@@ -5,21 +6,18 @@ def display_board(board):
 
 display_board ([' '] *10)
 
-def repeat ():
-    n = 0 #player chances to place an x or o
-    global lst_user_input
-    lst_user_input = []
-    while n <= 3:
-        global user_input
-        user_input = input(" Do you choose X or O? ")
-        global input_position
-        input_position = input(" Where would you like to place it? Enter a number between 1 and 9: ")
-        print(int(input_position))
-        n += 1
-
-        lst_user_input.append(user_input)
-        break
+def repeat ():    
+    global user_input
+    user_input = input("Do you choose X or O? ")    
+    global input_position
+    input_position = input("Where would you like to place it? Enter a number between 1 and 9: ")
+    
 repeat()
+
+def collect_input():    
+    user_input_lst.append(user_input)
+    print(f"user input is {user_input_lst}")
+collect_input()
 
 def updated_board(board):
     for index in range(len(board)):
@@ -32,11 +30,12 @@ def updated_board(board):
 
 newest = updated_board([' '] *10)
 
-
 def rounds():
     r = 8
+    '''print the updated board'''
     while r>0:
-        repeat()
+        repeat()    
+        collect_input()
         def latest_board(newest):
             for var in range(len(newest)):
                 if var == int(input_position):
@@ -48,5 +47,6 @@ def rounds():
 
         latest_board(newest)
         r-=1
-        #continue
+        
 rounds()
+
