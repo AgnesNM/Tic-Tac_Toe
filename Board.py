@@ -25,8 +25,12 @@ def winner():
     for user in range(len(user_input_lst)):
         if user_input_lst == code:
             print(f"You entered 3 {user_input_lst[user]}'s! You win")
-        break         
+        break
+    #else:
+        #print(f"it's a draw")
+
 winner()
+
 
 def updated_board(board):
     for index in range(len(board)):
@@ -45,7 +49,7 @@ def rounds():
     while r>0:
         repeat()    
         collect_input()
-        winner()
+
         def latest_board(newest):
             for var in range(len(newest)):
                 if var == int(input_position):
@@ -57,6 +61,8 @@ def rounds():
 
         latest_board(newest)
         r-=1
-        
+
+        winner()      
+
 rounds()
 
