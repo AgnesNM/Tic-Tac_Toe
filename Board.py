@@ -9,8 +9,17 @@ def display_board(board):
 
 display_board ([' '] *10)
 
+def choose_players():
+    player = input("Choose player 1 or player 2: ")
+    if player == "player 1":
+        print(f"Start the game, {player}")
+    elif player == "player 2":
+        print(f"Start the game, {player}")  
 
-def repeat ():    
+
+def repeat ():
+    while not choose_players():
+        break    
     global user_input
     user_input = input("Do you choose X or O? ")    
     global input_position
@@ -33,8 +42,7 @@ def combos_vertical(ver_lst):
     if user_pos_lst in ver_lst:
         print(f"player 1 wins!")   
 
-def combos_diagonal(diag_lst):
-    print(f"These are the positions {user_pos_lst}")
+def combos_diagonal(diag_lst):    
     if user_pos_lst in diag_lst:
         print(f"player 1 wins!")
     
@@ -51,7 +59,7 @@ def winner():
         elif user_input_lst == code_o:
            print(f"You entered 3 {user_input_lst[user]}'s! You win")
 
-        '''HORIZONTAL INDEX POSITION COMBINATIONS FOR CHECKING FOR WINNER'''   
+        '''HORIZONTAL/VERTICAL AND DIAGONAL INDEX POSITION COMBINATIONS FOR CHECKING FOR WINNER'''   
 
         combos_horizontal([[9,8,7], [6,5,4], [3,2,1], [7,8,9], [4,5,6], [1,2,3]])
 
