@@ -21,14 +21,15 @@ def collect_input():
 collect_input()
 
 def winner():
-    code = ['x','x','x']
+    '''DECLARE A WINNER IF USER ENTERS 3 CONSECUTIVE X's OR O's'''
+    code_x = ['x','x','x']
+    code_o = ['o','o','o']
     for user in range(len(user_input_lst)):
-        if user_input_lst == code:
+        if user_input_lst == code_x:
             print(f"You entered 3 {user_input_lst[user]}'s! You win")
-        break
-        
-    #else:
-        #print(f"it's a draw")
+        elif user_input_lst == code_o:
+           print(f"You entered 3 {user_input_lst[user]}'s! You win")
+        break    
 
 winner()
 
@@ -46,7 +47,7 @@ newest = updated_board([' '] *10)
 
 def rounds():
     r = 8
-    '''print the updated board'''
+    '''PRINT THE UPDATED BOARD'''
     while r>0:
         repeat()    
         collect_input()
