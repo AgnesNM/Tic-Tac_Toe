@@ -26,6 +26,7 @@ def winner():
         if user_input_lst == code:
             print(f"You entered 3 {user_input_lst[user]}'s! You win")
         break
+        
     #else:
         #print(f"it's a draw")
 
@@ -62,7 +63,8 @@ def rounds():
         latest_board(newest)
         r-=1
 
-        winner()      
+        if not winner() and r<=6:
+            break      
 
 rounds()
 

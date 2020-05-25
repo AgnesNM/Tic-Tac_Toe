@@ -29,21 +29,23 @@ def repeat ():
    
         winner()
 
+        
         def updated_board(board):
-            for index in range(len(board)):
-                if index == int(input_position):
-                    board[int(input_position)] += user_input
-            print(board[7] + ' | ' + board[8] + ' | ' + board[9])
-            print(board[4] + ' | ' + board[5] + ' | ' + board[6])
-            print(board[1] + ' | ' + board[2] + ' | ' + board[3])
-            return board
+            n=1
+            while n>0:
+                for index in range(len(board)):
+                    if index == int(input_position):
+                        board[int(input_position)] += user_input
+                        print(board[7] + ' | ' + board[8] + ' | ' + board[9])
+                        print(board[4] + ' | ' + board[5] + ' | ' + board[6])
+                        print(board[1] + ' | ' + board[2] + ' | ' + board[3])
+                n-=1
+            return board           
 
-        updated_board([' '] *10)    
-
-        #newest = updated_board([' '] *10)
+        newest = updated_board([' '] *10)
 
            
-        """ def latest_board(newest):
+        def latest_board(newest):
             for var in range(len(newest)):
                 if var == int(input_position):
                         newest[int(input_position)] += user_input
@@ -53,7 +55,7 @@ def repeat ():
 
             return newest
 
-        latest_board(newest) """
+        latest_board(newest)
     r-=1
 
 repeat()
