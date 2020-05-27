@@ -1,5 +1,7 @@
-user_input_lst = []
-user_pos_lst = [ ]
+player_1_input_lst = []
+player_2_input_lst = []
+player_1_pos_lst = [ ]
+player_2_pos_lst = [ ]
 
 
 def display_board(board):
@@ -10,6 +12,7 @@ def display_board(board):
 display_board ([' '] *10)
 
 def choose_players():
+    global player
     player = input("Choose player 1 or player 2: ")
     if player == "player 1":
         print(f"Start the game, {player}")
@@ -28,47 +31,67 @@ def repeat ():
 repeat()
 
 
-def collect_input():    
-    user_input_lst.append(user_input)
-    user_pos_lst.append(int(input_position))    
+def collect_input():  
+    if player == "player 1":
+        player_1_input_lst.append(user_input)
+        player_1_pos_lst.append(int(input_position))        
+    elif player == "player2":
+        player_2_input_lst.append(user_input)
+        player_2_pos_lst.append(int(input_position))    
 
 collect_input()
 
-def combos_horizontal(lst):    
-    if user_pos_lst in lst:
-        print(f"player 1 wins!")     
 
-def combos_vertical(ver_lst):    
-    if user_pos_lst in ver_lst:
-        print(f"player 1 wins!")   
-
-def combos_diagonal(diag_lst):    
-    if user_pos_lst in diag_lst:
-        print(f"player 1 wins!")
-    
-
-def winner():
+def winner1():
     '''DECLARE A WINNER IF USER ENTERS 3 CONSECUTIVE X's OR O's'''
     global code_x
+    
+    hor_lst = [[9,8,7], [6,5,4], [3,2,1], [7,8,9], [4,5,6], [1,2,3]]
+    ver_lst = [[1,4,7], [2,5,8], [3,6,9], [7,4,1], [8,5,2], [3,6,9]]
+    diag_lst = [[9,5,1], [7,5,3], [1,5,9], [3,5,7]]
+
+
     code_x = ['x','x','x']
     code_o = ['o','o','o']
-    for user in range(len(user_input_lst)):
-        if user_input_lst == code_x:            
-            print(f"You entered 3 {user_input_lst[user]}'s! You win")
 
-        elif user_input_lst == code_o:
-           print(f"You entered 3 {user_input_lst[user]}'s! You win")
+    '''CHECKING WHETHER PLAYER 1 IS THE WINNER'''
+    '''THE Xs COMBINATION'''
 
-        '''HORIZONTAL/VERTICAL AND DIAGONAL INDEX POSITION COMBINATIONS FOR CHECKING FOR WINNER'''   
+    for user in range(len(player_1_input_lst)):
+        if player_1_input_lst == code_x and player_1_pos_lst in hor_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
 
-        combos_horizontal([[9,8,7], [6,5,4], [3,2,1], [7,8,9], [4,5,6], [1,2,3]])
+            break
 
-        combos_vertical([[1,4,7], [2,5,8], [3,6,9], [7,4,1], [8,5,2], [3,6,9]])
+        elif player_1_input_lst == code_x and player_1_pos_lst in ver_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
+
+            break
+
+        elif player_1_input_lst == code_x and player_1_pos_lst in diag_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
+
+            break
+
+        #THE O's COMBINATION
+        elif player_1_input_lst == code_o and player_1_pos_lst in hor_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
+
+            break
+
+        elif player_1_input_lst == code_o and player_1_pos_lst in ver_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
+
+            break
+
+        elif player_1_input_lst == code_o and player_1_pos_lst in diag_lst:
+            print(f"Player 1 entered 3 {player_1_input_lst[user]}'s! at positions {player_1_pos_lst} Player 1 wins")
+
+            break      
         
-        combos_diagonal([[9,5,1], [7,5,3], [1,5,9], [3,5,7]])
-        break    
+        
 
-winner()   
+winner1()   
 
 
 def updated_board(board):
@@ -102,8 +125,8 @@ def rounds():
         latest_board(newest)
         r-=1
 
-        if not winner() and r<=6:
-            break         
-
+        """ if not winner() and r<=6:
+            break   """       
+        winner1()
 rounds()
 
