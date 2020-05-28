@@ -58,13 +58,4 @@ def repeat ():
         latest_board(newest)
     r-=1
 
-repeat()
-
-
-
-
-
-
-
-
-
+repeat()           

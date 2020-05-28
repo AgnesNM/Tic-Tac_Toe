@@ -119,15 +119,14 @@ def rounds():
                     newest[int(input_position)] += user_input
                     print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3]) 
+                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
                 code_x = ['x', 'x', 'x' ]
                 code_o = ['o', 'o', 'o']
-                if (code_x == player_1_input_lst) or (code_o == player_1_input_lst):
-                    print(f"yea")
-                    #if player_1_pos_lst = var
 
-                                                     
+                if ((code_x == player_1_input_lst) or (code_o == player_1_input_lst)) and (var in player_1_pos_lst):
+                    print(f"you have entered {player_1_input_lst} this is the {var} position {player_1_pos_lst}")               
+                                                 
                             
             return newest 
             #break
