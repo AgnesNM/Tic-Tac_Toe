@@ -42,9 +42,9 @@ def collect_input():
 collect_input()
 
 
-def winner1():
+""" def winner1():
     '''DECLARE A WINNER IF USER ENTERS 3 CONSECUTIVE X's OR O's'''
-    global code_x
+    #global code_x
     
     hor_lst = [[9,8,7], [6,5,4], [3,2,1], [7,8,9], [4,5,6], [1,2,3]]
     ver_lst = [[1,4,7], [2,5,8], [3,6,9], [7,4,1], [8,5,2], [3,6,9]]
@@ -91,7 +91,7 @@ def winner1():
         
         
 
-winner1()   
+winner1()    """
 
 
 def updated_board(board):
@@ -119,14 +119,25 @@ def rounds():
                     newest[int(input_position)] += user_input
                     print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
+                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3]) 
+
+                code_x = ['x', 'x', 'x' ]
+                code_o = ['o', 'o', 'o']
+                if (code_x == player_1_input_lst) or (code_o == player_1_input_lst):
+                    print(f"yea")
+                    #if player_1_pos_lst = var
+
+                                                     
+                            
             return newest 
+            #break
+
+             
             
         latest_board(newest)
         r-=1
 
-        """ if not winner() and r<=6:
-            break   """       
-        winner1()
+              
+        
 rounds()
 
