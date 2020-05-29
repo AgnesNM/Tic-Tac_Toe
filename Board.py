@@ -62,11 +62,15 @@ def rounds():
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
                     print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])   
 
+            def check_rows():
+                
                 if (newest[7] == newest[8] == newest[9] != ' ') :
                     print(f"{player} wins")
+                    #break
                     
                     global ongoing_game
-                    ongoing_game = False     
+                    ongoing_game = False
+            check_rows()     
   
         latest_board(newest)       
 
