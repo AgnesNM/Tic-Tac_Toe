@@ -63,14 +63,44 @@ def rounds():
                     print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])   
 
             def check_rows():
-                
-                if (newest[7] == newest[8] == newest[9] != ' ') :
+                row_1 = newest[7] == newest[8] == newest[9] != ' '
+                row_2 = newest[4] == newest[5] == newest[6] != ' '
+                row_3 = newest[1] == newest[2] == newest[3] != ' '
+
+                if row_1 or row_2 or row_3:
                     print(f"{player} wins")
                     #break
                     
                     global ongoing_game
                     ongoing_game = False
-            check_rows()     
+            check_rows()
+
+
+            def check_columns():
+                col_1 = newest[7] == newest[4] == newest[1] != ' '
+                col_2 = newest[8] == newest[5] == newest[2] != ' '
+                col_3 = newest[9] == newest[6] == newest[3] != ' '
+
+                if col_1 or col_2 or col_3:
+                    print(f"{player} wins")
+                    #break
+                    
+                    global ongoing_game
+                    ongoing_game = False
+            check_columns()
+
+
+            def check_diagonals():
+                diag_1 = newest[9] == newest[5] == newest[1] != ' '
+                diag_2 = newest[7] == newest[5] == newest[3] != ' '                
+
+                if diag_1 or diag_2:
+                    print(f"{player} wins")
+                    #break
+                    
+                    global ongoing_game
+                    ongoing_game = False
+            check_diagonals()            
   
         latest_board(newest)       
 
