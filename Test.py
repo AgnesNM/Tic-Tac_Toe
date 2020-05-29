@@ -59,3 +59,11 @@ def repeat ():
     r-=1
 
 repeat()           
+
+
+ code_x = ['x', 'x', 'x' ]
+                code_o = ['o', 'o', 'o']
+
+                if ((code_x == in player_1_input_lst) or (code_o == player_1_input_lst)) and (var in player_1_pos_lst):
+                    print(f"you have entered {player_1_input_lst} this is the {var} position {player_1_pos_lst}")
+                    #break 
