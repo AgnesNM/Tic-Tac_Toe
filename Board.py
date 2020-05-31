@@ -11,12 +11,22 @@ display_board ([' '] *10)
 
 ongoing_game = True
 
+#player 1 input 
+player_1_input_lst = []
+
+#player 2 input 
+player_2_input_lst = []
+
+
+
 
 def choose_players():
     global player
     player = input("Choose player 1 or player 2: ")
+    
     if player == "player 1":
         print(f"Start the game, {player}")
+    
     elif player == "player 2":
         print(f"Start the game, {player}")  
 
@@ -24,12 +34,24 @@ def choose_players():
 def repeat ():
     while not choose_players():
         break    
+    
     global user_input
     user_input = input("Do you choose X or O? ")    
+    
     global input_position
     input_position = input("Where would you like to place it? Enter a number between 1 and 9: ")
     
 repeat()
+
+
+def collect_input():  
+    if player == "player 1":
+        player_1_input_lst.append(user_input)          
+
+    elif player == "player2":
+        player_2_input_lst.append(user_input)
+        
+collect_input()
 
 
 def updated_board(board):
@@ -43,6 +65,7 @@ def updated_board(board):
     return board
 
 newest = updated_board([' '] *10)
+#print(f"This is newest: {newest}")
 
 
 def rounds():
@@ -51,7 +74,8 @@ def rounds():
     global ongoing_game
 
     while ongoing_game:
-        repeat()    
+        repeat() 
+        collect_input()   
         
         def latest_board(newest):
             for var in range(len(newest)):
@@ -61,6 +85,8 @@ def rounds():
                     print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
                     print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])   
+
+            '''FUNCTIONS TO CHECK FOR THE WINNER'''                                 
 
             def check_rows():
                 row_1 = newest[7] == newest[8] == newest[9] != ' '
@@ -73,6 +99,7 @@ def rounds():
                     
                     global ongoing_game
                     ongoing_game = False
+
             check_rows()
 
 
@@ -87,6 +114,7 @@ def rounds():
                     
                     global ongoing_game
                     ongoing_game = False
+
             check_columns()
 
 
@@ -100,8 +128,18 @@ def rounds():
                     
                     global ongoing_game
                     ongoing_game = False
-            check_diagonals()            
-  
+
+            check_diagonals()
+
+            def check_draw():
+                if not (check_rows() and check_columns() and check_diagonals()) and (not ' ' in newest[1:]):
+                    print(f"It's a draw")
+
+                    global ongoing_game
+                    ongoing_game = False
+
+            check_draw()                    
+             
         latest_board(newest)       
 
 rounds()
