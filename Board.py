@@ -20,7 +20,7 @@ player_2_input_lst = []
 
 def choose_players():
     global player
-    player = input("Choose player 1 or player 2: ")
+    player = input("Choose player 1 or player 2: ").lower()
     
     if player == "player 1":
         print(f"Start the game, {player}")
