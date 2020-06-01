@@ -32,14 +32,13 @@ def choose_players():
         choose_players()
               
 
-
 def repeat ():
     while not choose_players():
         break    
     
-    global user_input
-    user_input = input("Do you choose X or O? ")    
-    
+    global user_input      
+    user_input = input("Do you choose X or O? ").lower()
+
     global input_position
     input_position = input("Where would you like to place it? Enter a number between 1 and 9: ")
     
