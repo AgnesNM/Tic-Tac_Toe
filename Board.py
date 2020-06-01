@@ -18,8 +18,6 @@ player_1_input_lst = []
 player_2_input_lst = []
 
 
-
-
 def choose_players():
     global player
     player = input("Choose player 1 or player 2: ")
@@ -28,7 +26,11 @@ def choose_players():
         print(f"Start the game, {player}")
     
     elif player == "player 2":
-        print(f"Start the game, {player}")  
+        print(f"Start the game, {player}")
+    else:
+        print(f"Please enter player 1 or player 2")
+        choose_players()
+              
 
 
 def repeat ():
