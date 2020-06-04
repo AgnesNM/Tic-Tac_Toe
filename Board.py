@@ -1,18 +1,18 @@
-print("Welcome to Tic Tac Toe")
-
 def game_intro():
-    print(("_"*6) + "\t" + "    _____" + "\t" + "_____" + ("   ____"*2) + "\t" )
-    print(("   |")*3 + "\t" + "\t  | " + "   |" + "___" + "|" + "  |")    
-    print(("   |")*3 + "\t" + "\t  | " + ("   |"*2) + "  |")
-    print(("   |")*3 + "_____" + "\t" + "  | " + ("   |"*2) + "  |" + "____" + "\n")
-game_intro()    
+    print(("_"*6) + "\t" + "    _____" + "\t" + "_____" + ("   ____"*2) + "\t" + ("_"*5) + "\t" + ("_"*3) + "\t" + ("_")*5)
+    print(("   |")*3 + "\t" + "\t  | " + "   |" + "___" + "|" + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|" + "___")     
+    print(("   |")*3 + "\t" + "\t  | " + ("   |"*2) + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|")
+    print(("   |")*3 + "_____" + "\t" + "  | " + ("   |"*2) + "  |" + "____" + "\t" + "  |" + "   | " + ("___") + "|" + "\t|" + "___" "\n")
+game_intro() 
+
+print("Welcome to Tic Tac Toe. To win the game, you need to get either 3 x's or o's in a row. Place your x or o in a corresponding position")
 
 def display_board(board):
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(board[4] + ' | ' + board[5] + ' | ' + board[6])
     print(board[1] + ' | ' + board[2] + ' | ' + board[3])
 
-display_board ([' '] *10)
+display_board (['x','1','2','3','4','5','6','7','8','9'])
 
 '''GLOBAL VARIABLES'''
 
