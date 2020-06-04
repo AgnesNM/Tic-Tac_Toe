@@ -11,11 +11,11 @@ display_board ([' '] *10)
 
 ongoing_game = True
 
-#player 1 input 
-player_1_input_lst = []
+#player 1 input position
+player_1_pos_lst = set ()
 
-#player 2 input 
-player_2_input_lst = []
+#player 2 input position
+player_2_pos_lst = set()
 
 
 def game(): 
@@ -27,10 +27,10 @@ def game():
         player = input("Choose player 1 or player 2: ").lower()
     
         if player == "player 1":
-            print(f"Start the game, {player}")
+            print(f"Start the game, {player}")            
     
         elif player == "player 2":
-            print(f"Start the game, {player}")
+            print(f"Start the game, {player}")            
         
         else:
             print(f"Please enter player 1 or player 2")
@@ -55,8 +55,22 @@ def game():
         global input_position
         input_position = int(input("Where would you like to place it? Enter a number between 1 and 9: "))
 
-        if input_position in [1,2,3,4,5,6,7,8,9]:
-            print(f"Your have chosen position {input_position}")
+        if input_position in [1,2,3,4,5,6,7,8,9] and player == "player 1" != ' ':
+            if input_position not in player_1_pos_lst:
+                player_1_pos_lst.update([input_position])                
+
+            else:
+                print(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
+                collect_input()
+                       
+        elif input_position in [1,2,3,4,5,6,7,8,9] and player == "player 2" != ' ':
+            if input_position not in player_2_pos_lst:
+                player_2_pos_lst.update([input_position])                
+
+            else:
+                print(f"{player_2_pos_lst} is already taken, please choose another number between 1 and 9")
+                collect_input() 
+
         else:
             print(f"Please enter a number between 1 and 9")
             collect_input()
@@ -68,7 +82,7 @@ def game():
         '''PRINT THE UPDATED BOARD'''
 
         for index in range(len(board)):
-            if index == input_position:
+            if (index == input_position):
                 board[input_position] += user_input
         print(board[7] + ' | ' + board[8] + ' | ' + board[9])
         print(board[4] + ' | ' + board[5] + ' | ' + board[6])
@@ -91,7 +105,7 @@ def game():
                                        
                     print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])   
+                    print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
             '''FUNCTIONS TO CHECK FOR THE WINNER'''                                 
 
