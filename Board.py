@@ -129,8 +129,7 @@ def game():
 
                 if diag_1 or diag_2:
                     print(f"{player} wins")
-                    #break
-                    
+                                        
                     global ongoing_game
                     ongoing_game = False
 
@@ -147,6 +146,24 @@ def game():
 
             check_draw()                    
              
-        latest_board(newest)       
+        latest_board(newest)
 
-game() 
+    '''FUNCTION TO RESTART THE GAME'''
+
+    def restart_game():
+        start = input("Do you want to play another game? ").lower()
+        
+        if start == "no":        
+            global ongoing_game
+            ongoing_game = False
+
+        elif start == "yes":            
+            ongoing_game = True
+            game()
+                
+    restart_game()        
+
+game()
+
+
+        
