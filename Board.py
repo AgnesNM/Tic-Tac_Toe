@@ -18,6 +18,8 @@ player_1_input_lst = []
 player_2_input_lst = []
 
 
+'''FUNCTION TO CHOOSE PLAYERS'''
+
 def choose_players():
     global player
     player = input("Choose player 1 or player 2: ").lower()
@@ -31,35 +33,39 @@ def choose_players():
         print(f"Please enter player 1 or player 2")
         choose_players()
               
+'''FUNCTION TO ALLOW PLAYERS TO CHOOSE X OR O AND THEIR POSITIONS ON THE BOARD'''
 
-def repeat ():
+def collect_input ():
     while not choose_players():
         break    
     
-    global user_input      
+    global user_input          
     user_input = input("Do you choose X or O? ").lower()
 
+    if user_input == "x" or user_input == "o":
+        print(f"Your input is {user_input}")
+    else:
+        print(f"Please choose 'x' or 'o'")
+        collect_input()
+     
     global input_position
-    input_position = input("Where would you like to place it? Enter a number between 1 and 9: ")
+    input_position = int(input("Where would you like to place it? Enter a number between 1 and 9: "))
+
+    if input_position in [1,2,3,4,5,6,7,8,9]:
+        print(f"Your have chosen position {input_position}")
+    else:
+        print(f"Please enter a number between 1 and 9")
+        collect_input()
     
-repeat()
-
-
-def collect_input():  
-    if player == "player 1":
-        player_1_input_lst.append(user_input)          
-
-    elif player == "player2":
-        player_2_input_lst.append(user_input)
-        
 collect_input()
 
 
 def updated_board(board):
     '''PRINT THE UPDATED BOARD'''
+
     for index in range(len(board)):
-        if index == int(input_position):
-            board[int(input_position)] += user_input
+        if index == input_position:
+            board[input_position] += user_input
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(board[4] + ' | ' + board[5] + ' | ' + board[6])
     print(board[1] + ' | ' + board[2] + ' | ' + board[3])
@@ -69,19 +75,18 @@ newest = updated_board([' '] *10)
 #print(f"This is newest: {newest}")
 
 
-def rounds():
-    
+def rounds():    
     '''PRINT THE LATEST BOARD'''
+    
     global ongoing_game
 
-    while ongoing_game:
-        repeat() 
+    while ongoing_game:         
         collect_input()   
         
         def latest_board(newest):
             for var in range(len(newest)):
-                if var == int(input_position):
-                    newest[int(input_position)] += user_input
+                if var == input_position:
+                    newest[input_position] += user_input
                                        
                     print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                     print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
