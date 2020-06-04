@@ -1,10 +1,10 @@
 print("Welcome to Tic Tac Toe")
 
 def game_intro():
-    print(("_"*6) + "\t" + "    _____")
-    print(("   |")*3)
-    print(("   |")*3)
-    print(("   |")*3 + "_____" + "\n")
+    print(("_"*6) + "\t" + "    _____" + "\t" + "_____" + ("   ____"*2) + "\t" )
+    print(("   |")*3 + "\t" + "\t  | " + "   |" + "___" + "|" + "  |")    
+    print(("   |")*3 + "\t" + "\t  | " + ("   |"*2) + "  |")
+    print(("   |")*3 + "_____" + "\t" + "  | " + ("   |"*2) + "  |" + "____" + "\n")
 game_intro()    
 
 def display_board(board):
