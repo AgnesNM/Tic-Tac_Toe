@@ -26,13 +26,14 @@ player_2_pos_lst = set()
 
 def game():
 
+    ''''FUNCTION TO KEEP TRACK OF GAME ROUNDS FOR THE SAKE OF CLEARING THE BOARD ON GAME RESTART'''
     def game_rounds ():
         rounds  = int(input("Enter game round: "))
 
         if rounds >1:
             player_1_pos_lst.clear()
             player_2_pos_lst.clear()
-            
+
     game_rounds()              
 
     '''FUNCTION TO CHOOSE PLAYERS'''
@@ -188,6 +189,8 @@ def game():
 
         elif start == "yes":            
             ongoing_game = True
+
+            '''FUNCTION TO CLEAR BOARD ON GAME RESTART'''
 
             def clear_board(newest):                   
                 print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
