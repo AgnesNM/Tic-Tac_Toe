@@ -24,8 +24,16 @@ player_1_pos_lst = set ()
 #player 2 input position
 player_2_pos_lst = set()
 
+def game():
 
-def game(): 
+    def game_rounds ():
+        rounds  = int(input("Enter game round: "))
+
+        if rounds >1:
+            player_1_pos_lst.clear()
+            player_2_pos_lst.clear()
+            
+    game_rounds()              
 
     '''FUNCTION TO CHOOSE PLAYERS'''
 
@@ -60,8 +68,8 @@ def game():
             collect_input()
      
         global input_position
-        input_position = int(input("Where would you like to place it? Enter a number between 1 and 9: "))
-
+        input_position = int(input("Where would you like to place it? Enter a number between 1 and 9: "))      
+        
         if input_position in [1,2,3,4,5,6,7,8,9] and player == "player 1" != ' ':
             if input_position not in player_1_pos_lst:
                 player_1_pos_lst.update([input_position])                
@@ -80,7 +88,7 @@ def game():
 
         else:
             print(f"Please enter a number between 1 and 9")
-            collect_input()
+            collect_input()      
     
     collect_input()
 
@@ -180,6 +188,14 @@ def game():
 
         elif start == "yes":            
             ongoing_game = True
+
+            def clear_board(newest):                   
+                print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
+                print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
+                print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
+
+            clear_board([' '] *10)           
+
             game()
                 
     restart_game()        
