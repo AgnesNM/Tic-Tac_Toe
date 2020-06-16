@@ -3,9 +3,11 @@ def game_intro():
     print(("   |")*3 + "\t" + "\t  | " + "   |" + "___" + "|" + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|" + "___")     
     print(("   |")*3 + "\t" + "\t  | " + ("   |"*2) + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|")
     print(("   |")*3 + "_____" + "\t" + "  | " + ("   |"*2) + "  |" + "____" + "\t" + "  |" + "   | " + ("___") + "|" + "\t|" + "___" "\n")
+
+    print("Welcome to Tic Tac Toe. To win the game, you need to get either 3 x's or o's in a row. Place your x or o in a corresponding position")
+
 game_intro() 
 
-print("Welcome to Tic Tac Toe. To win the game, you need to get either 3 x's or o's in a row. Place your x or o in a corresponding position")
 
 def display_board(board):
     print(board[7] + ' | ' + board[8] + ' | ' + board[9])
@@ -190,15 +192,19 @@ def game():
         elif start == "yes":            
             ongoing_game = True
 
+            game_intro()
+            display_board (['x','1','2','3','4','5','6','7','8','9'])
+
             '''FUNCTION TO CLEAR BOARD ON GAME RESTART'''
 
-            def clear_board(newest):                   
+            def clear_board(newest): 
+                print("Here is the empty board to get you started: ")                  
                 print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                 print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
                 print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
-            clear_board([' '] *10)           
-
+            clear_board([' '] *10)         
+                      
             game()
                 
     restart_game()        
