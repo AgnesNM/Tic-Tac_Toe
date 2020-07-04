@@ -1,10 +1,26 @@
+#import the needed modules - tkinter and the sub-module ttk
+from tkinter import *
+from tkinter import ttk
+
+#define the main root window and assign a title to it
+root = Tk()
+root.title("TIC TAC TOE")
+
+#create a frame widget
+mainframe = ttk.Frame(root, padding="3 3 12 12")
+mainframe.grid(column = 0, row = 0, sticky = (N,W,E,S))
+
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1)	
+
+
 def game_intro():
     print(("_"*6) + "\t" + "    _____" + "\t" + "_____" + ("   ____"*2) + "\t" + ("_"*5) + "\t" + ("_"*3) + "\t" + ("_")*5)
     print(("   |")*3 + "\t" + "\t  | " + "   |" + "___" + "|" + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|" + "___")     
     print(("   |")*3 + "\t" + "\t  | " + ("   |"*2) + "  |" + "\t\t"+ "  |" + ("   | ")*2 + "\t" + "|")
     print(("   |")*3 + "_____" + "\t" + "  | " + ("   |"*2) + "  |" + "____" + "\t" + "  |" + "   | " + ("___") + "|" + "\t|" + "___" "\n")
 
-    print("Welcome to Tic Tac Toe. To win the game, you need to get either 3 x's or o's in a row. Place your x or o in a corresponding position")
+    print("Welcome to Tic Tac Toe. To win the game, you need to enter 3 consecutive x's or o's. Place your x or o in a corresponding position")
 
 game_intro() 
 
