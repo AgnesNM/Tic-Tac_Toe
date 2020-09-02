@@ -140,10 +140,7 @@ class Player():
                     global ongoing_game
                     ongoing_game = False
 
-            check_rows()
-
-            global ongoing_game
-            ongoing_game = True
+            check_rows()          
 
             def check_columns():
                 col_1 = newest[7] == newest[4] == newest[1] != ' '
@@ -180,7 +177,7 @@ class Player():
                     global ongoing_game
                     ongoing_game = False 
                     
-            check_draw()                     
+            check_draw()                            
 
         latest_board(newest)   
  
