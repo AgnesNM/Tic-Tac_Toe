@@ -179,8 +179,23 @@ class Player():
                     
             check_draw()                            
 
-        latest_board(newest)   
- 
+        latest_board(newest)
+
+    def clear_board(newest):
+        restart = input("Do you want to play another game? ")
+
+        if restart == "yes":
+            ongoing_game = True
+
+            print("Welcome")
+
+        elif restart == "no":
+            ongoing_game = False
+
+            print("Thanks for playing Tic Tac Toe")           
+        
+    clear_board([' '] *10)     
+
  
 #new_game = Player(1,2)
 
