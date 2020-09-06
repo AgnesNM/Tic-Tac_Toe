@@ -213,8 +213,11 @@ class Player():
 
         ongoing_game = True
        
-        while not player_1_input_lst == ["x","x","x"] or player_2_input_lst :              
-            choose_players()
-            collect_input()
-            latest_board(newest)                     
+        while not player_1_input_lst == ["x","x","x"]:
+            if player_2_input_lst != ["o", "o", "o"]:              
+                choose_players()
+                collect_input()
+                latest_board(newest)
+            else:
+                break                     
 
