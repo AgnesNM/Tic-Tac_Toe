@@ -1,10 +1,17 @@
+
 '''CLASS OBJECT ATTRIBUTES'''
 
 #global ongoing_game
 ongoing_game = True
 
+#player 1 inputs
+player_1_input_lst = []
+
 #player 1 input position
 player_1_pos_lst = set ()
+
+#player 2 inputs
+player_2_input_lst = []
 
 #player 2 input position
 player_2_pos_lst = set()
@@ -33,7 +40,6 @@ class Player():
     display_board (['x','1','2','3','4','5','6','7','8','9'])
 
    
-
     '''FUNCTION TO KEEP TRACK OF GAME ROUNDS FOR THE SAKE OF CLEARING THE BOARD ON GAME RESTART'''
     def game_rounds ():
         rounds  = int(input("Enter game round: "))
@@ -41,6 +47,8 @@ class Player():
         if rounds >1:
             player_1_pos_lst.clear()
             player_2_pos_lst.clear()
+            player_1_input_lst.clear()
+            player_2_input_lst.clear()
 
     game_rounds()
 
@@ -66,9 +74,12 @@ class Player():
         global user_input          
         user_input = input("Do you choose X or O? ").lower()
 
-        if user_input == "x" or user_input == "o":
-            print(f"Your input is {user_input}")
-        
+        if user_input == "x": 
+            player_1_input_lst.append(user_input)
+
+        elif user_input == "o":  
+            player_2_input_lst.append(user_input)           
+            
         else:
             print(f"Please choose 'x' or 'o'")
             collect_input()
@@ -79,7 +90,8 @@ class Player():
         if input_position in range(0,10) and player == "player 1" != ' ':
             global player_1_pos_lst
             if input_position not in player_1_pos_lst:
-                player_1_pos_lst.update([input_position])                
+                player_1_pos_lst.update([input_position])  
+                                
 
             else:
                 print(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
@@ -181,21 +193,28 @@ class Player():
 
         latest_board(newest)
 
-    def clear_board(newest):
-        restart = input("Do you want to play another game? ")
+    restart = input("Another? ")
+    if restart == "yes":
+        game_intro()
+        display_board (['x','1','2','3','4','5','6','7','8','9'])
 
-        if restart == "yes":
-            ongoing_game = True
+        def clear_board(newest): 
+            print("Here is the empty board to get you started: ")                  
+            print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
+            print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
+            print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
-            print("Welcome")
+        clear_board([' '] *10)
 
-        elif restart == "no":
-            ongoing_game = False
+        game_rounds()
+        choose_players()
+        collect_input()
+        newest = updated_board([' '] *10)
 
-            print("Thanks for playing Tic Tac Toe")           
-        
-    clear_board([' '] *10)     
-
- 
-#new_game = Player(1,2)
+        ongoing_game = True
+       
+        while not player_1_input_lst == ["x","x","x"] or player_2_input_lst :              
+            choose_players()
+            collect_input()
+            latest_board(newest)                     
 
