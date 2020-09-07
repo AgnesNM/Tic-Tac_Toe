@@ -1,12 +1,12 @@
-""" import unittest
+import unittest
 
 from board4 import Game
 
 class TestBoard4(unittest.TestCase):
     def test_game_rounds(self):
-        game1 = Game(1,2)
+        game1 = Game("x","o")
 
-        self.assertEqual(game1.game_rounds, player_1_pos_lst.clear())
+        self.assertEqual(game1.game_rounds, set())
 
 if __name__ == "__main__":
-    unittest.main() """
+    unittest.main()
