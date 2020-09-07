@@ -1,5 +1,6 @@
+'''GLOBAL VARIABLES'''
 
-'''CLASS OBJECT ATTRIBUTES'''
+player = "x" or "o"
 
 #global ongoing_game
 ongoing_game = True
@@ -16,8 +17,9 @@ player_2_input_lst = []
 #player 2 input position
 player_2_pos_lst = set()
 
-class Player():
 
+class Game():
+    
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
@@ -45,30 +47,14 @@ class Player():
         rounds  = int(input("Enter game round: "))
             
         if rounds >1:
-            player_1_pos_lst.clear()
+            player_1_pos_lst.clear()            
             player_2_pos_lst.clear()
             player_1_input_lst.clear()
             player_2_input_lst.clear()
 
     game_rounds()
 
-    def choose_players():
-
-        global player
-        player = input("Choose player 1 or player 2: ").lower()
-        
-        if player == "player 1":
-            print(f"Start the game, {player}")            
-            
-        elif player == "player 2":
-            print(f"Start the game, {player}")
-                        
-        else:    
-            print(f"Please enter player 1 or player 2")
-            choose_players()
-    
-    choose_players()
-
+  
     def collect_input ():        
                       
         global user_input          
@@ -76,9 +62,12 @@ class Player():
 
         if user_input == "x": 
             player_1_input_lst.append(user_input)
+            player = "player 1"
+
 
         elif user_input == "o":  
-            player_2_input_lst.append(user_input)           
+            player_2_input_lst.append(user_input)
+            player = "player 1"           
             
         else:
             print(f"Please choose 'x' or 'o'")
@@ -128,7 +117,7 @@ class Player():
 
 
     while ongoing_game:             
-        choose_players()
+        #choose_players()
         collect_input()   
             
         def latest_board(newest):
@@ -193,31 +182,35 @@ class Player():
 
         latest_board(newest)
 
-    restart = input("Another? ")
-    if restart == "yes":
-        game_intro()
-        display_board (['x','1','2','3','4','5','6','7','8','9'])
+    while True:
+        restart = input("Do you want to play another game? ")
+        if restart == "yes":
+            game_intro()
+            display_board (['x','1','2','3','4','5','6','7','8','9'])
 
-        def clear_board(newest): 
-            print("Here is the empty board to get you started: ")                  
-            print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
-            print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-            print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
+            def clear_board(newest): 
+                print("Here is the empty board to get you started: ")                  
+                print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
+                print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
+                print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
-        clear_board([' '] *10)
+            clear_board([' '] *10)
 
-        game_rounds()
-        choose_players()
-        collect_input()
-        newest = updated_board([' '] *10)
+            game_rounds()
+            #choose_players()
+            collect_input()
+            newest = updated_board([' '] *10)
 
-        ongoing_game = True
+            ongoing_game = True
        
-        while not player_1_input_lst == ["x","x","x"]:
-            if player_2_input_lst != ["o", "o", "o"]:              
-                choose_players()
-                collect_input()
-                latest_board(newest)
-            else:
-                break                     
+            while player_1_input_lst != ["x","x","x"]:
+                if player_2_input_lst != ["o", "o", "o"]:              
+                    #choose_players()
+                    collect_input()
+                    latest_board(newest)
+            continue
 
+        elif restart == "no":
+            print("Thanks for playing Tic Tac Toe")
+            break
+    
