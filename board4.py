@@ -193,31 +193,33 @@ class Player():
 
         latest_board(newest)
 
-    restart = input("Another? ")
-    if restart == "yes":
-        game_intro()
-        display_board (['x','1','2','3','4','5','6','7','8','9'])
+    while True:
+        restart = input("Do you want to play another game? ")
+        if restart == "yes":
+            game_intro()
+            display_board (['x','1','2','3','4','5','6','7','8','9'])
 
-        def clear_board(newest): 
-            print("Here is the empty board to get you started: ")                  
-            print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
-            print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
-            print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
+            def clear_board(newest): 
+                print("Here is the empty board to get you started: ")                  
+                print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
+                print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
+                print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
 
-        clear_board([' '] *10)
+            clear_board([' '] *10)
 
-        game_rounds()
-        choose_players()
-        collect_input()
-        newest = updated_board([' '] *10)
+            game_rounds()
+            choose_players()
+            collect_input()
+            newest = updated_board([' '] *10)
 
-        ongoing_game = True
+            ongoing_game = True
        
-        while not player_1_input_lst == ["x","x","x"]:
-            if player_2_input_lst != ["o", "o", "o"]:              
-                choose_players()
-                collect_input()
-                latest_board(newest)
-            else:
-                break                     
+            while player_1_input_lst != ["x","x","x"]:
+                if player_2_input_lst != ["o", "o", "o"]:              
+                    choose_players()
+                    collect_input()
+                    latest_board(newest)
+            continue
 
+        elif restart == "no":
+            break
