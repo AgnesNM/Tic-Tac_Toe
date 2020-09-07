@@ -43,16 +43,18 @@ class Game():
 
    
     '''FUNCTION TO KEEP TRACK OF GAME ROUNDS FOR THE SAKE OF CLEARING THE BOARD ON GAME RESTART'''
-    def game_rounds ():
+    def game_rounds (self):
         rounds  = int(input("Enter game round: "))
-            
-        if rounds >1:
+           
+        if rounds > 1:
             player_1_pos_lst.clear()            
             player_2_pos_lst.clear()
             player_1_input_lst.clear()
-            player_2_input_lst.clear()
-
-    game_rounds()
+            player_2_input_lst.clear()          
+             
+        return "game round func"    
+    
+    #print(game_rounds())
 
   
     def collect_input ():        
@@ -196,16 +198,14 @@ class Game():
 
             clear_board([' '] *10)
 
-            game_rounds()
-            #choose_players()
+            #game_rounds()            
             collect_input()
             newest = updated_board([' '] *10)
 
             ongoing_game = True
        
             while player_1_input_lst != ["x","x","x"]:
-                if player_2_input_lst != ["o", "o", "o"]:              
-                    #choose_players()
+                if player_2_input_lst != ["o", "o", "o"]:             
                     collect_input()
                     latest_board(newest)
             continue

@@ -4,9 +4,9 @@ from board4 import Game
 
 class TestBoard4(unittest.TestCase):
     def test_game_rounds(self):
-        game1 = Game("x","o")
+        game2 = Game("x","o")      
 
-        self.assertEqual(game1.game_rounds, set())
+        self.assertEqual(game2.game_rounds(), "game round func")
 
 if __name__ == "__main__":
     unittest.main()
