@@ -178,7 +178,7 @@ class Game():
             player_2_pos_lst.clear()
             player_1_input_lst.clear()
             player_2_input_lst.clear()
-            
+
             game_intro()
             display_board (['x','1','2','3','4','5','6','7','8','9'])
 
@@ -187,7 +187,7 @@ class Game():
                 print(newest[7] + ' | ' + newest[8] + ' | ' + newest[9])
                 print(newest[4] + ' | ' + newest[5] + ' | ' + newest[6])
                 print(newest[1] + ' | ' + newest[2] + ' | ' + newest[3])
-
+            
             clear_board([' '] *10)
 
                        
