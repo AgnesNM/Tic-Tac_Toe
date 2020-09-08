@@ -43,19 +43,6 @@ class Game():
 
    
     '''FUNCTION TO KEEP TRACK OF GAME ROUNDS FOR THE SAKE OF CLEARING THE BOARD ON GAME RESTART'''
-    def game_rounds (self):
-        rounds  = int(input("Enter game round: "))
-           
-        if rounds > 1:
-            player_1_pos_lst.clear()            
-            player_2_pos_lst.clear()
-            player_1_input_lst.clear()
-            player_2_input_lst.clear()          
-             
-        return "game round func"    
-    
-    #print(game_rounds())
-
   
     def collect_input ():        
                       
@@ -187,6 +174,11 @@ class Game():
     while True:
         restart = input("Do you want to play another game? ")
         if restart == "yes":
+            player_1_pos_lst.clear()            
+            player_2_pos_lst.clear()
+            player_1_input_lst.clear()
+            player_2_input_lst.clear()
+            
             game_intro()
             display_board (['x','1','2','3','4','5','6','7','8','9'])
 
@@ -198,7 +190,7 @@ class Game():
 
             clear_board([' '] *10)
 
-            #game_rounds()            
+                       
             collect_input()
             newest = updated_board([' '] *10)
 
@@ -213,4 +205,3 @@ class Game():
         elif restart == "no":
             print("Thanks for playing Tic Tac Toe")
             break
-    
