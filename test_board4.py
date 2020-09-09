@@ -19,8 +19,14 @@ class TestGame(unittest.TestCase):
                 self.assertEqual(fig, fig)
                                
     def test_collect_input(self):
-        self.assertEqual("X".lower(),"x")
-        self.assertEqual("O".lower(),"o")       
+        self.assertEqual("X".lower(),"x")        
+        self.assertEqual("O".lower(),"o")
+
+        user_input = "x"
+        player_1_input_lst = []
+        player_1_input_lst.append(user_input)
+
+        self.assertEqual(player_1_input_lst, ["x"])              
 
 if __name__ == "__main__" :
     unittest.main()
