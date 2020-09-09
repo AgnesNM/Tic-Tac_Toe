@@ -44,6 +44,7 @@ class Game():
    
     '''FUNCTION TO KEEP TRACK OF GAME ROUNDS FOR THE SAKE OF CLEARING THE BOARD ON GAME RESTART'''
   
+    
     def collect_input ():        
                       
         global user_input          
@@ -59,7 +60,8 @@ class Game():
             player = "player 1"           
             
         else:
-            print(f"Please choose 'x' or 'o'")
+            #print(f"Please choose 'x' or 'o'")
+            raise Exception("please choose 'x' or 'o'")
             collect_input()
         
         global input_position
