@@ -14,10 +14,13 @@ class TestGame(unittest.TestCase):
     def test_display_board(self):
         mylist = ['x','1','2','3','4','5','6','7','8','9']
         for fig in mylist:
+            #context manager
             with self.subTest(fig = fig):                
                 self.assertEqual(fig, fig)
-                
-               
+                               
+    def test_collect_input(self):
+        self.assertEqual("X".lower(),"x")
+        self.assertEqual("O".lower(),"o")       
 
 if __name__ == "__main__" :
     unittest.main()
