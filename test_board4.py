@@ -5,7 +5,8 @@ from board4 import Game
 class TestGame(unittest.TestCase):
 
     def setUp(self):
-        self.game1 = Game("x", "o")         
+        self.game1 = Game("x", "o")
+        
     
     def test_global(self):             
         self.assertEqual(self.game1.player1, "x")
@@ -32,13 +33,11 @@ class TestGame(unittest.TestCase):
         player_2_input_lst = []
         player_2_input_lst.append(user_input)
 
-        self.assertEqual(player_2_input_lst, ["o"])  
+        self.assertEqual(player_2_input_lst, ["o"])
 
-        #self.assertEqual((user_input == "x" or "o"), "c", "please choose x or o")
-        self.assertRaises(Exception, (user_input == "x" or "o"), "c")
-
-        #with self.assertRaises(Exception):
-            #user_input == "x" or "o", "c"
+        with self.assertRaises(Exception):
+            self.game1.collect_input()
+        
 
 if __name__ == "__main__" :
     unittest.main()

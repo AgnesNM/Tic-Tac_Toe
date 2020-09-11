@@ -67,28 +67,31 @@ class Game():
         global input_position
         input_position = int(input("Where would you like to place it? Enter a number between 1 and 9: "))      
             
-        if input_position in range(0,10) and player == "player 1" != ' ':
+        if input_position in range(1,10) and player == "player 1" != ' ':
             global player_1_pos_lst
             if input_position not in player_1_pos_lst:
                 player_1_pos_lst.update([input_position])  
                                 
 
             else:
-                print(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
+                #print(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
+                raise Exception(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
                 collect_input()
                         
-        elif input_position in range(0,10) and player == "player 2" != ' ':
+        elif input_position in range(1,10) and player == "player 2" != ' ':
             if input_position not in player_2_pos_lst:
                 player_2_pos_lst.update([input_position])                
 
             else:
-                print(f"{player_2_pos_lst} is already taken, please choose another number between 1 and 9")
+                #print(f"{player_2_pos_lst} is already taken, please choose another number between 1 and 9")
+                raise Exception(f"{player_1_pos_lst} is already taken, please choose another number between 1 and 9")
                 collect_input() 
 
         else:
-            print(f"Please enter a number between 1 and 9")
-            collect_input()      
-        
+            #print(f"Please enter a number between 1 and 9")
+            raise Exception("please enter a number between 1 and 9")
+            collect_input()
+            
     collect_input()
 
     def updated_board(board):
