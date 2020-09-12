@@ -35,6 +35,10 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual(player_2_input_lst, ["o"])
 
+        #using the function delegation approach
+        self.assertRaises(Exception, self.game1.collect_input)
+
+        #using a context manager
         with self.assertRaises(Exception):
             self.game1.collect_input()
         
