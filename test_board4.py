@@ -121,6 +121,16 @@ class TestGame(unittest.TestCase):
         
         self.assertTrue(diagonal)
 
+        def test_clear_board(self):
+        
+            #test that the user gets a clear board on starting a new game
+            mylist1 = ['x','1','2','3','4','5','6','x','x','x']
+            
+            for index in range(len(mylist1)):
+                mylist1[index] = ' '            
+                with self.subTest(mylist1[index] == ' '):
+                    self.assertEqual(mylist1, [' ']*10)
+
      
 
 if __name__ == "__main__" :
