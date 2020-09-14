@@ -11,9 +11,20 @@ class TestGame(unittest.TestCase):
     def test_global(self):
         #test that player 1 is 'x'             
         self.assertEqual(self.game1.player1, "x")
+
         #test that player 2 is 'o'
         self.assertEqual(self.game1.player2, "o")
 
+        #test that user input gets cleared if a user wants to play another game
+        self.game1.restart = "x"
+
+        player_1_pos_lst = {7,8,9}
+        player_1_pos_lst.clear()
+
+        self.assertEqual(player_1_pos_lst, set())  
+
+        
+        
     def test_display_board(self):
         #test that the printed out board is equal to 'mylist'
         mylist = ['x','1','2','3','4','5','6','7','8','9']
@@ -89,7 +100,9 @@ class TestGame(unittest.TestCase):
 
         diagonal = mylist1[3] == mylist1[5] == mylist1[7]
         
-        self.assertTrue(diagonal) 
+        self.assertTrue(diagonal)
+
+     
 
 if __name__ == "__main__" :
     unittest.main()
