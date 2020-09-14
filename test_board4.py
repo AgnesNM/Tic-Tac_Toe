@@ -36,7 +36,7 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual(player_1_input_lst, []) 
 
-        #test that former player 1 inputs get cleared if a user wants to play another game
+        #test that former player 2 inputs get cleared if a user wants to play another game
         
         player_2_input_lst = ["x", "x", "x"]
         player_2_input_lst.clear()
@@ -123,15 +123,21 @@ class TestGame(unittest.TestCase):
 
         def test_clear_board(self):
         
-            #test that the user gets a clear board on starting a new game
+            #test that the user gets a clear board on starting a new game - player 1
             mylist1 = ['x','1','2','3','4','5','6','x','x','x']
             
             for index in range(len(mylist1)):
                 mylist1[index] = ' '            
                 with self.subTest(mylist1[index] == ' '):
                     self.assertEqual(mylist1, [' ']*10)
-
-     
+            
+             #test that the user gets a clear board on starting a new game - player 2
+            mylist1 = ['x','1','2','3','4','5','6','o','o','o']
+            
+            for index in range(len(mylist1)):
+                mylist1[index] = ' '            
+                with self.subTest(mylist1[index] == ' '):
+                    self.assertEqual(mylist1, [' ']*10)
 
 if __name__ == "__main__" :
     unittest.main()
