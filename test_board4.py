@@ -49,7 +49,7 @@ class TestGame(unittest.TestCase):
 
     def test_updated_board(self):
         #test that the printed out board gets updated with user input
-        user_input = "x"
+        user_input = "x" or "o"
         mylist1 = ['x','1','2','3','4','5','6','7','8','9']
         
         for index in range(len(mylist1)):
@@ -58,9 +58,9 @@ class TestGame(unittest.TestCase):
                 self.assertEqual(mylist1[index], user_input)
                 
     def test_latest_board(self):
-        
+
         #test that for a win, there are 3 consecutive os or xs in a row
-        user_input = "o" or "x"
+        user_input = "x" or "o"
         mylist1 = ['x','1','2','3','4','5','6','7','8','9']
 
         mylist1[7] = user_input
