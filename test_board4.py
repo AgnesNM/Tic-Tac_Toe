@@ -56,7 +56,20 @@ class TestGame(unittest.TestCase):
             mylist1[index] = user_input            
             with self.subTest(mylist1[index] == user_input):
                 self.assertEqual(mylist1[index], user_input)
-     
+                
+    def test_latest_board(self):
+        
+        #test that for a win, there are 3 consecutive os or xs in a row
+        user_input = "o" or "x"
+        mylist1 = ['x','1','2','3','4','5','6','7','8','9']
+
+        mylist1[7] = user_input
+        mylist1[8] = user_input
+        mylist1[9] = user_input
+
+        row = mylist1[9] == mylist1[8] == mylist1[7]
+        
+        self.assertTrue(row)        
 
 if __name__ == "__main__" :
     unittest.main()
