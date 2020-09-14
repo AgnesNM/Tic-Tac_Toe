@@ -71,5 +71,15 @@ class TestGame(unittest.TestCase):
         
         self.assertTrue(row)        
 
+        #test that for a win, there are 3 consecutive os or xs in a column
+       
+        mylist1[3] = user_input
+        mylist1[6] = user_input
+        mylist1[9] = user_input
+
+        row = mylist1[3] == mylist1[6] == mylist1[9]
+        
+        self.assertTrue(row) 
+
 if __name__ == "__main__" :
     unittest.main()
