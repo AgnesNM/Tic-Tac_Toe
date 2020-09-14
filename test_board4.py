@@ -29,6 +29,20 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual(player_2_pos_lst, set()) 
 
+        #test that former player 1 inputs get cleared if a user wants to play another game
+        
+        player_1_input_lst = ["x", "x", "x"]
+        player_1_input_lst.clear()
+
+        self.assertEqual(player_1_input_lst, []) 
+
+        #test that former player 1 inputs get cleared if a user wants to play another game
+        
+        player_2_input_lst = ["x", "x", "x"]
+        player_2_input_lst.clear()
+
+        self.assertEqual(player_2_input_lst, [])
+
         
     def test_display_board(self):
         #test that the printed out board is equal to 'mylist'
