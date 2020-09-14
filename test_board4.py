@@ -15,15 +15,20 @@ class TestGame(unittest.TestCase):
         #test that player 2 is 'o'
         self.assertEqual(self.game1.player2, "o")
 
-        #test that user input gets cleared if a user wants to play another game
-        self.game1.restart = "x"
-
+        #test that former player 1 input positions get cleared if a user wants to play another game
+        
         player_1_pos_lst = {7,8,9}
         player_1_pos_lst.clear()
 
-        self.assertEqual(player_1_pos_lst, set())  
+        self.assertEqual(player_1_pos_lst, set()) 
 
+        #test that former player 2 input positions get cleared if a user wants to play another game
         
+        player_2_pos_lst = {7,8,9}
+        player_2_pos_lst.clear()
+
+        self.assertEqual(player_2_pos_lst, set()) 
+
         
     def test_display_board(self):
         #test that the printed out board is equal to 'mylist'
