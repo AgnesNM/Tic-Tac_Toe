@@ -77,9 +77,19 @@ class TestGame(unittest.TestCase):
         mylist1[6] = user_input
         mylist1[9] = user_input
 
-        row = mylist1[3] == mylist1[6] == mylist1[9]
+        column = mylist1[3] == mylist1[6] == mylist1[9]
         
-        self.assertTrue(row) 
+        self.assertTrue(column) 
+
+        #test that for a win, there are 3 consecutive os or xs in a diagonal
+
+        mylist1[3] = user_input
+        mylist1[5] = user_input
+        mylist1[7] = user_input
+
+        diagonal = mylist1[3] == mylist1[5] == mylist1[7]
+        
+        self.assertTrue(diagonal) 
 
 if __name__ == "__main__" :
     unittest.main()
